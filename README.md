@@ -3,7 +3,9 @@
 Chrome extension to hide the "Squash & Merge" buttons on GitHub pull requests.
 
 #### How it works?
+
 It hides:
+
 * The green one that by default is the last one you used.
 * The option from the dropdown menu.
 
@@ -20,6 +22,14 @@ It supports regex, so you can hide the button for multiple branches.
 TODO
 
 #### Why?
+
 This seems like a problem that many people share:
+
 * [Related GitHub](https://github.com/community/community/discussions/10809)
 * [Stack Overflow](https://stackoverflow.com/questions/65898390/is-there-a-way-to-disable-squash-and-merge-for-certain-branches-in-github)
+
+---
+
+The icons for this extension have been designed using images from Flaticon.com
+
+Attribution to Royyan Wijaya

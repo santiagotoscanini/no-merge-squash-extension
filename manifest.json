@@ -22,11 +22,22 @@
         }
     ],
     "options_page": "options/options.html",
+    "icons": {
+        "16": "assets/16.png",
+        "24": "assets/24.png",
+        "32": "assets/32.png",
+        "48": "assets/48.ico",
+        "64": "assets/64.png",
+        "128": "assets/128.png"
+    },
     "action": {
         "default_icon": {
-            "16": "assets/ext-icon.png",
-            "24": "assets/ext-icon.png",
-            "32": "assets/ext-icon.png"
+            "16": "assets/16.png",
+            "24": "assets/24.png",
+            "32": "assets/32.png",
+            "48": "assets/48.ico",
+            "64": "assets/64.png",
+            "128": "assets/128.png"
         },
         "default_title": "GitHub S&M Blocker",
         "default_popup": "popup/popup.html"
