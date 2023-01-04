@@ -6,13 +6,15 @@ Chrome extension to hide the "Squash & Merge" buttons on GitHub pull requests.
 
 It hides:
 
-* The green one that by default is the last one you used.
+* The green one that by default is the last one you used (so it force you to pick another one).
 * The option from the dropdown menu.
 
 ##### Before
+
 ![before-cropped.png](static%2Fbefore-cropped.png)
 
 ##### After
+
 ![after-cropped.png](static%2Fafter-cropped.png)
 
 #### Configuring the extension
