@@ -27,11 +27,15 @@ async function newPRLoaded() {
 function hideButtons() {
     // This one is the actual merge button
     const mergeButtonDefault = document.getElementsByClassName("merge-box-button btn-group-squash rounded-left-2 btn btn-primary BtnGroup-item js-details-target hx_create-pr-button")[0]
-    mergeButtonDefault.style.display = 'none'
+    if (mergeButtonDefault) {
+        mergeButtonDefault.style.display = "none";
+    }
 
     // This one is the one from the dropdown
     const mergeButtonDropdown = document.getElementsByClassName("width-full select-menu-item js-merge-box-button-squash")[0]
-    mergeButtonDropdown.style.display = 'none'
+    if (mergeButtonDropdown) {
+        mergeButtonDropdown.style.display = "none";
+    }
 }
 
 function chromeMessageListener(request, sender, sendResponse) {
