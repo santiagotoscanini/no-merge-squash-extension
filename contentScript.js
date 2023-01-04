@@ -1,7 +1,4 @@
 (() => {
-    // Listen for tab changes
-    chrome.runtime.onMessage.addListener(chromeMessageListener);
-
     // First time run
     // TODO: Check how can we avoid duplicating this
     if (/^https:\/\/github\.com\/[\w-]+\/[\w-]+\/pull\//.test(location.href)) {
@@ -37,11 +34,5 @@ function hideButtons() {
     const mergeButtonDropdown = document.getElementsByClassName("width-full select-menu-item js-merge-box-button-squash")[0]
     if (mergeButtonDropdown) {
         mergeButtonDropdown.style.display = "none";
-    }
-}
-
-function chromeMessageListener(request, sender, sendResponse) {
-    if (request.type === "PR_TAB_UPDATED") {
-        newPRLoaded();
     }
 }
