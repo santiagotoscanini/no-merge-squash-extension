@@ -9,7 +9,11 @@ It hides:
 * The green one that by default is the last one you used.
 * The option from the dropdown menu.
 
-![img.png](static/squash-and-merge-example.png)
+##### Before
+![before-cropped.png](static%2Fbefore-cropped.png)
+
+##### After
+![after-cropped.png](static%2Fafter-cropped.png)
 
 #### Configuring the extension
 
@@ -25,8 +29,8 @@ TODO
 
 This seems like a problem that many people share:
 
-* [Related GitHub](https://github.com/community/community/discussions/10809)
-* [Stack Overflow](https://stackoverflow.com/questions/65898390/is-there-a-way-to-disable-squash-and-merge-for-certain-branches-in-github)
+* Related GitHub discussion https://github.com/community/community/discussions/10809
+* [StackOverflow question](https://stackoverflow.com/questions/65898390/is-there-a-way-to-disable-squash-and-merge-for-certain-branches-in-github)
 
 ---
 
