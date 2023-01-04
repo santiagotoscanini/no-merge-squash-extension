@@ -25,7 +25,14 @@ It supports regex, so you can hide the button for multiple branches.
 
 #### Installing the extension
 
-TODO
+Extension is being reviewed by Google, so it's not available on the Chrome Web Store yet.
+To install it, you need to:
+* Download the extension code from GitHub.
+* Go to `chrome://extensions/` and enable the developer mode.
+* Click on "Load unpacked" and select the folder where you downloaded the extension code.
+* You should see the extension installed.
+* Go to the options page and configure the branch you want to hide the button for.
+* You're done!
 
 #### Why?
 
