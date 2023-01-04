@@ -29,7 +29,7 @@ TODO
 
 This seems like a problem that many people share:
 
-* Related GitHub discussion https://github.com/community/community/discussions/10809
+* [Related GitHub discussion](https://github.com/community/community/discussions/10809)
 * [StackOverflow question](https://stackoverflow.com/questions/65898390/is-there-a-way-to-disable-squash-and-merge-for-certain-branches-in-github)
 
 ---
