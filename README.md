@@ -11,7 +11,9 @@ It hides:
 
 #### Configuring the extension
 
-TODO
+On the options page you can configure the branch to hide the button for. By default, it's `main`.
+
+It supports regex, so you can hide the button for multiple branches.
 
 #### Installing the extension
 

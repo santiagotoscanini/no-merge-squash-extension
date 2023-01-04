@@ -17,10 +17,12 @@ async function newPRLoaded() {
         const targetBranch = basePRMessage[2].children[0].children[0].innerText
         // const sourceBranch = basePRMessage[5].children[0].children[0].innerText
 
-        if (targetBranch === "prod") {
-            // Execute after 1 second, because the PR buttons are loaded dynamically
-            setTimeout(hideButtons, 1000);
-        }
+        chrome.storage.sync.get(["branchNameRegex"]).then(({branchNameRegex = "main"}) => {
+            if (targetBranch.match(branchNameRegex)) {
+                // Execute after 1 second, because the PR buttons are loaded dynamically
+                setTimeout(hideButtons, 1000);
+            }
+        });
     }
 }
 

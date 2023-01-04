@@ -1,28 +1,34 @@
 {
-  "manifest_version": 3,
-  "name": "GitHub S&M Prod Blocker",
-  "version": "0.1.0",
-  "description": "Avoid Squash & Merge PRs when merging to prod branch",
-  "permissions": ["tabs"],
-  "host_permissions": ["https://*.github.com/*"],
-  "background": {
-    "service_worker": "background.js",
-    "type": "module"
-  },
-  "content_scripts": [
-    {
-      "matches": ["https://*.github.com/*"],
-      "run_at": "document_end",
-      "js": ["contentScript.js"]
+    "manifest_version": 3,
+    "name": "GitHub S&M Blocker",
+    "version": "0.1.0",
+    "description": "Avoid Squash & Merge PRs when merging to defined branches",
+    "permissions": [
+        "tabs",
+        "storage"
+    ],
+    "host_permissions": [
+        "https://*.github.com/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.github.com/*"
+            ],
+            "run_at": "document_end",
+            "js": [
+                "contentScript.js"
+            ]
+        }
+    ],
+    "options_page": "options/options.html",
+    "action": {
+        "default_icon": {
+            "16": "assets/ext-icon.png",
+            "24": "assets/ext-icon.png",
+            "32": "assets/ext-icon.png"
+        },
+        "default_title": "GitHub S&M Blocker",
+        "default_popup": "popup/popup.html"
     }
-  ],
-  "action": {
-    "default_icon": {
-      "16": "assets/ext-icon.png",
-      "24": "assets/ext-icon.png",
-      "32": "assets/ext-icon.png"
-    },
-    "default_title": "GitHub S&M Prod Blocker",
-    "default_popup": "popup/popup.html"
-  }
 }
