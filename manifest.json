@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "GitHub S&M Blocker",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Avoid Squash & Merge PRs when merging to defined branches",
     "permissions": [
         "tabs",
