@@ -1,5 +1,4 @@
 (() => {
-    // First time run
     // TODO: Check how can we avoid duplicating this
     if (/^https:\/\/github\.com\/[\w-]+\/[\w-]+\/pull\//.test(location.href)) {
         newPRLoaded();
@@ -11,8 +10,8 @@ async function newPRLoaded() {
 
     if (prStatus.includes("Open")) {
         const basePRMessage = document.getElementsByClassName("flex-auto min-width-0 mb-2")[0].children
+        // Position 2 is target branch and position 5 is source branch
         const targetBranch = basePRMessage[2].children[0].children[0].innerText
-        // const sourceBranch = basePRMessage[5].children[0].children[0].innerText
 
         chrome.storage.sync.get(["branchNameRegex"]).then(({branchNameRegex = "main"}) => {
             if (targetBranch.match(branchNameRegex)) {
@@ -25,14 +24,16 @@ async function newPRLoaded() {
 
 function hideButtons() {
     // This one is the actual merge button
-    const mergeButtonDefault = document.getElementsByClassName("merge-box-button btn-group-squash rounded-left-2 btn btn-primary BtnGroup-item js-details-target hx_create-pr-button")[0]
-    if (mergeButtonDefault) {
-        mergeButtonDefault.style.display = "none";
-    }
+    const mergeButtonDefault = document.getElementsByClassName("btn-group-squash")
+    hideAll(mergeButtonDefault)
 
     // This one is the one from the dropdown
-    const mergeButtonDropdown = document.getElementsByClassName("width-full select-menu-item js-merge-box-button-squash")[0]
-    if (mergeButtonDropdown) {
-        mergeButtonDropdown.style.display = "none";
+    const mergeButtonDropdown = document.getElementsByClassName("js-merge-box-button-squash")
+    hideAll(mergeButtonDropdown)
+}
+
+function hideAll(elements) {
+    for (let element of elements) {
+        element.style.display = "none"
     }
 }
