@@ -1,11 +1,15 @@
 (() => {
-    // TODO: Check how can we avoid duplicating this
-    if (/^https:\/\/github\.com\/[\w-]+\/[\w-]+\/pull\//.test(location.href)) {
-        newPRLoaded();
-    }
+    chrome.runtime.onMessage.addListener(chromeMessageListener);
 })();
 
-async function newPRLoaded() {
+async function chromeMessageListener(request, sender, sendResponse) {
+    // TODO: Check how can we avoid duplicating this
+    if (/^https:\/\/github\.com\/[\w-]+\/[\w-]+\/pull\//.test(location.href)) {
+        await onButtonsLoaded();
+    }
+}
+
+async function onButtonsLoaded() {
     const prStatus = document.querySelectorAll("[reviewable_state]")[0].innerText
 
     if (prStatus.includes("Open")) {
@@ -13,10 +17,9 @@ async function newPRLoaded() {
         // Position 2 is target branch and position 5 is source branch
         const targetBranch = basePRMessage[2].children[0].children[0].innerText
 
-        chrome.storage.sync.get(["branchNameRegex"]).then(({branchNameRegex = "main"}) => {
+        chrome.storage.sync.get(["branchNameRegex"]).then(({ branchNameRegex = "main" }) => {
             if (targetBranch.match(branchNameRegex)) {
-                // Execute after 1 second, because the PR buttons are loaded dynamically
-                setTimeout(hideButtons, 1000);
+                hideButtons();
             }
         });
     }
