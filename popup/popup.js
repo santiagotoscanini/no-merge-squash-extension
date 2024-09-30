@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             chrome.storage.sync.get(["branchNameRegex"]).then(({branchNameRegex = "main"}) => {
                 container.innerHTML = `
                     <div class="title">
-                        Squash & merge is going to be blocked if the PR is open.
+                        Squash & merge is going to be blocked on <code>${branchNameRegex}</code>
                         </br>
                         </br>
                         <div class="subtitle">
-                        The current branch name regex is: <code>${branchNameRegex}</code>
+                        The current branch name regex is:
                         </div>
                     </div>`;
             });
