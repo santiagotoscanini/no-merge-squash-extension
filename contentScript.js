@@ -39,8 +39,7 @@ function hideButtons() {
   );
 
   if (mergeButtonText[0].textContent.includes("Squash")) {
-    mergeButtonText[0].textContent =
-      mergeButtonText[0].textContent + " (disabled by extension)";
+    mergeButtonText[0].textContent += " (disabled by extension)";
     mergeButtonDefault[0].disabled = true;
   }
 
@@ -51,8 +50,7 @@ function hideButtons() {
         if (
           !mergeButtonText[0].textContent.includes("(disabled by extension)")
         ) {
-          mergeButtonText[0].textContent =
-            mergeButtonText[0].textContent + " (disabled by extension)";
+          mergeButtonText[0].textContent += " (disabled by extension)";
         }
         mergeButtonDefault[0].disabled = true;
       } else {
