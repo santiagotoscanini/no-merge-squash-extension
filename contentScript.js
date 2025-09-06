@@ -66,14 +66,6 @@ function hideButtons() {
       characterData: true,
     });
   }
-
-  // This one is the one from the dropdown
-  const mergeButtonDropdownLegacy = document.getElementsByClassName(
-    "js-merge-box-button-squash"
-  );
-  hideAll(mergeButtonDropdownLegacy);
-  const mergeButtonDropdown = document.getElementById(":r3:");
-  hideAll(mergeButtonDropdown);
 }
 
 function hideAll(elements) {
