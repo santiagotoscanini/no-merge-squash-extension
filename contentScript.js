@@ -38,24 +38,12 @@ function hideButtons() {
     "prc-Button-Label-pTQ3x"
   );
 
-  if (mergeButtonText[0].textContent.includes("Squash")) {
-    mergeButtonText[0].textContent += " (disabled by extension)";
-    mergeButtonDefault[0].disabled = true;
-  }
+  modifyMergeButton(mergeButtonDefault[0], mergeButtonText[0]);
 
   // Listen for changes in button text
   if (mergeButtonText[0]) {
     const observer = new MutationObserver(() => {
-      if (mergeButtonText[0].textContent.includes("Squash")) {
-        if (
-          !mergeButtonText[0].textContent.includes("(disabled by extension)")
-        ) {
-          mergeButtonText[0].textContent += " (disabled by extension)";
-        }
-        mergeButtonDefault[0].disabled = true;
-      } else {
-        mergeButtonDefault[0].disabled = false;
-      }
+      modifyMergeButton(mergeButtonDefault[0], mergeButtonText[0]);
     });
 
     observer.observe(mergeButtonText[0], {
@@ -66,8 +54,13 @@ function hideButtons() {
   }
 }
 
-function hideAll(elements) {
-  for (let element of elements) {
-    element.style.display = "none";
+function modifyMergeButton(mergeButtonDefault, mergeButtonText) {
+  if (mergeButtonText.textContent.includes("Squash")) {
+    if (!mergeButtonText.textContent.includes("(disabled by extension)")) {
+      mergeButtonText.textContent += " (disabled by extension)";
+    }
+    mergeButtonDefault.disabled = true;
+  } else {
+    mergeButtonDefault.disabled = false;
   }
 }
