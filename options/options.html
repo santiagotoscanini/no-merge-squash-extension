@@ -1,16 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head><title>GitHub S&M Blocker</title></head>
-<link href="options.css" rel="stylesheet" type="text/css"/>
-<body>
+  <head>
+    <title>GitHub S&M Blocker</title>
+    <link href="options.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body style="background: #f7f7f9; font-family: system-ui, sans-serif">
+    <div
+      style="
+        max-width: 370px;
+        margin: 40px auto;
+        padding: 24px 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      "
+    >
+      <h2 style="margin-top: 0; margin-bottom: 14px; font-size: 1.3em">
+        Configurations
+      </h2>
+      <label
+        for="branchNameRegex"
+        style="display: block; margin-bottom: 8px; font-weight: 500"
+      >
+        Branch to hide the button for
+        <span style="color: #888">(supports regex)</span>:
+      </label>
+      <input
+        type="text"
+        id="branchNameRegex"
+        name="name"
+        required
+        style="
+          width: 100%;
+          padding: 8px 10px;
+          margin-bottom: 16px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 1em;
+          box-sizing: border-box;
+        "
+      />
+      <div id="status" style="margin-bottom: 12px; color: #2a7"></div>
+      <button
+        id="save"
+        style="
+          padding: 8px 18px;
+          background: #0057d8;
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          font-size: 1em;
+          cursor: pointer;
+        "
+      >
+        Save
+      </button>
+    </div>
 
-<h2>Configurations</h2>
-<p>Branch to hide the button for (supports regex):</p>
-<input type="text" id="branchNameRegex" name="name" required>
-
-<div id="status"></div>
-<button id="save">Save</button>
-
-<script src="options.js"></script>
-</body>
+    <script src="options.js"></script>
+  </body>
 </html>
