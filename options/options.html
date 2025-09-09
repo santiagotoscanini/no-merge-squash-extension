@@ -33,13 +33,38 @@
         style="
           width: 100%;
           padding: 8px 10px;
-          margin-bottom: 16px;
+          margin-bottom: 20px;
           border: 1px solid #ccc;
           border-radius: 5px;
           font-size: 1em;
           box-sizing: border-box;
         "
       />
+
+      <label style="display: block; margin-bottom: 8px; font-weight: 500">
+        GitHub Repository URLs:
+        <span style="color: #888; font-weight: normal"
+          >(supports regex patterns)</span
+        >
+      </label>
+      <div id="urlsContainer" style="margin-bottom: 12px"></div>
+      <button
+        type="button"
+        id="addUrl"
+        style="
+          padding: 6px 12px;
+          background: #28a745;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          font-size: 0.9em;
+          cursor: pointer;
+          margin-bottom: 16px;
+        "
+      >
+        + Add URL
+      </button>
+
       <div id="status" style="margin-bottom: 12px; color: #2a7"></div>
       <button
         id="save"

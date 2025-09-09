@@ -3,8 +3,18 @@
 })();
 
 async function chromeMessageListener(request, sender, sendResponse) {
-  // TODO: Check how can we avoid duplicating this
-  if (/^https:\/\/github\.com\/[\w-]+\/[\w-]+\/pull\//.test(location.href)) {
+  const { urls = [] } = await chrome.storage.sync.get(["urls"]);
+  const isValidPR = urls.some((pattern) => {
+    try {
+      const regex = new RegExp(pattern);
+      return regex.test(location.href);
+    } catch (e) {
+      // Fallback to string matching if pattern is not valid regex
+      return location.href.startsWith(pattern);
+    }
+  });
+  
+  if (isValidPR) {
     await onButtonsLoaded();
   }
 }
