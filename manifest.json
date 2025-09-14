@@ -1,50 +1,40 @@
 {
-    "manifest_version": 3,
-    "name": "GitHub S&M Blocker",
-    "version": "1.0.0",
-    "description": "Avoid Squash & Merge PRs when merging to defined branches",
-    "permissions": [
-        "tabs",
-        "storage",
-        "webRequest"
-    ],
-    "host_permissions": [
-        "https://*.github.com/*"
-    ],
-    "background": {
-        "service_worker": "background.js",
-        "type": "module"
-    },
-    "content_scripts": [
-        {
-            "matches": [
-                "https://*.github.com/*"
-            ],
-            "run_at": "document_end",
-            "js": [
-                "contentScript.js"
-            ]
-        }
-    ],
-    "options_page": "options/options.html",
-    "icons": {
-        "16": "assets/16.png",
-        "24": "assets/24.png",
-        "32": "assets/32.png",
-        "48": "assets/48.ico",
-        "64": "assets/64.png",
-        "128": "assets/128.png"
-    },
-    "action": {
-        "default_icon": {
-            "16": "assets/16.png",
-            "24": "assets/24.png",
-            "32": "assets/32.png",
-            "48": "assets/48.ico",
-            "64": "assets/64.png",
-            "128": "assets/128.png"
-        },
-        "default_title": "GitHub S&M Blocker",
-        "default_popup": "popup/popup.html"
+  "manifest_version": 3,
+  "name": "GitHub S&M Blocker",
+  "version": "1.2.0",
+  "description": "Avoid Squash & Merge PRs when merging to defined branches",
+  "permissions": ["tabs", "storage", "webRequest"],
+  "host_permissions": ["https://*/*", "http://*/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "run_at": "document_end",
+      "js": ["contentScript.js"]
     }
+  ],
+  "options_page": "options/options.html",
+  "icons": {
+    "16": "assets/16.png",
+    "24": "assets/24.png",
+    "32": "assets/32.png",
+    "48": "assets/48.ico",
+    "64": "assets/64.png",
+    "128": "assets/128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "assets/16.png",
+      "24": "assets/24.png",
+      "32": "assets/32.png",
+      "48": "assets/48.ico",
+      "64": "assets/64.png",
+      "128": "assets/128.png"
+    },
+    "default_title": "GitHub S&M Blocker",
+    "default_popup": "popup/popup.html"
+  }
 }
