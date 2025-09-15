@@ -13,7 +13,7 @@ async function chromeMessageListener(request, sender, sendResponse) {
       return location.href.startsWith(pattern);
     }
   });
-  
+
   if (isValidPR) {
     await onButtonsLoaded();
   }
@@ -39,28 +39,40 @@ async function onButtonsLoaded() {
   }
 }
 
+function findSquashButton() {
+  // Find all buttons and search for one containing "Squash and merge" text
+  const buttons = document.querySelectorAll("button");
+  return Array.from(buttons).find((button) => {
+    return (
+      button.textContent && button.textContent.toLowerCase().includes("merge")
+    );
+  });
+}
+
 function hideButtons() {
-  // This one is the actual merge button
-  const mergeButtonDefault = document.getElementsByClassName(
-    "prc-Button-ButtonBase-c50BI flex-1"
-  );
-  const mergeButtonText = document.getElementsByClassName(
-    "prc-Button-Label-pTQ3x"
-  );
+  // Find button by text content instead of class name
+  const mergeButtonDefault = findSquashButton();
 
-  modifyMergeButton(mergeButtonDefault[0], mergeButtonText[0]);
+  if (mergeButtonDefault) {
+    // Find the innermost span that contains the text (span span structure)
+    const textSpan = mergeButtonDefault.querySelector("span span");
 
-  // Listen for changes in button text
-  if (mergeButtonText[0]) {
-    const observer = new MutationObserver(() => {
-      modifyMergeButton(mergeButtonDefault[0], mergeButtonText[0]);
-    });
+    if (textSpan) {
+      modifyMergeButton(mergeButtonDefault, textSpan);
 
-    observer.observe(mergeButtonText[0], {
-      childList: true,
-      subtree: true,
-      characterData: true,
-    });
+      // Listen for changes in button text
+      const observer = new MutationObserver(() => {
+        if (textSpan) {
+          modifyMergeButton(mergeButtonDefault, textSpan);
+        }
+      });
+
+      observer.observe(textSpan, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+      });
+    }
   }
 }
 
